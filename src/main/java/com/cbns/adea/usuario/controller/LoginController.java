@@ -12,10 +12,10 @@ import com.cbns.adea.usuario.dto.UsuarioResponse;
 @RequestMapping("/login")
 public class LoginController {
 	
-	@PostMapping("usuarioLogin")
-	public UsuarioResponse loginUser(@RequestBody UsuarioLoginRequest userLogin) {
-		
+	@PostMapping("/usuarioLogin")
+	public UsuarioResponse loginUser(@RequestBody UsuarioLoginRequest userLogin) {		
+		System.out.println(userLogin);
 		return null;
-	}	
-
+	}
+	
 }
