@@ -3,8 +3,7 @@ package com.cbns.adea.usuario.entity;
 import java.util.Date;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -17,11 +16,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
+@Entity
 public class UsuarioEntity {
 	
-	@Id
+	@Id	
 	@Column(name = "LOGIN")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String 	login;
 
 	@Column(name = "PASSWORD")
