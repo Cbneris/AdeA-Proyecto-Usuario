@@ -36,7 +36,7 @@ public class LoginController {
 	    if (optionalUsuario.isEmpty()) {
 	        return ResponseBuilder.notFound("El usuario con el que intenta ingresar no se encuentra registrado");
 	    }
-	    //System.out.println(encriptacion.hashSha256Base64(userLogin.getPassword()));
+	    
 	    UsuarioEntity usuario = optionalUsuario.get();
 	    String passwordHasheada = encriptacion.hashSha256Base64(userLogin.getPassword());
 
@@ -53,7 +53,7 @@ public class LoginController {
 	        return ResponseBuilder.error("El usuario ya no está vigente", HttpStatus.FORBIDDEN, null);
 	    }
 	    
-	    String mensajeBienvenida = "Bienvenido Usuario: " + usuario.getNombre();
+	    String mensajeBienvenida = "Bienvenido " + usuario.getNombre();
 	    return ResponseBuilder.success(mensajeBienvenida, null);
 	}
 	
