@@ -54,7 +54,8 @@ public class LoginController {
 	    }
 	    
 	    String mensajeBienvenida = "Bienvenido " + usuario.getNombre();
-	    return ResponseBuilder.success(mensajeBienvenida, null);
+	    usuario.setPassword("");
+	    return ResponseBuilder.success(mensajeBienvenida, usuario);
 	}
 	
 }
