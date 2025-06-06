@@ -33,6 +33,7 @@ public class LoginController {
 	public ResponseEntity<EntityResponse<Object>> loginUser(@RequestBody UsuarioLoginRequest userLogin) {		
 		Optional<UsuarioEntity> optionalUsuario = loginServ.buscaUsuarioPorLogin(userLogin.getUsername());
 
+		//Se valida que exista el usuario
 	    if (optionalUsuario.isEmpty()) {
 	        return ResponseBuilder.notFound("El usuario con el que intenta ingresar no se encuentra registrado");
 	    }
@@ -40,6 +41,7 @@ public class LoginController {
 	    UsuarioEntity usuario = optionalUsuario.get();
 	    String passwordHasheada = encriptacion.hashSha256Base64(userLogin.getPassword());
 
+	    //Se valida que la contraseña sea correcta
 	    if (!passwordHasheada.equals(usuario.getPassword())) {
 	        return ResponseBuilder.error("La contraseña es incorrecta", HttpStatus.BAD_REQUEST, null);
 	    }
@@ -49,6 +51,7 @@ public class LoginController {
 	    	    .atZone(ZoneId.systemDefault())
 	    	    .toLocalDate();
 	    
+	    //Se valida que el usuario sea válido
 	    if (fechaVigencia.isBefore(hoy)) {
 	        return ResponseBuilder.error("El usuario ya no está vigente", HttpStatus.FORBIDDEN, null);
 	    }
