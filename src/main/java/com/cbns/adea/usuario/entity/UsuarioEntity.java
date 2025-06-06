@@ -5,6 +5,7 @@ import java.util.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -67,5 +68,11 @@ public class UsuarioEntity {
 
 	@Column(name = "FECHAMODIFICACION")
 	private Date	fechaModificacion;
+	
+
+	@PrePersist
+	protected void onCreate() {
+	    this.fechaModificacion = new Date();
+	}
 	
 }
