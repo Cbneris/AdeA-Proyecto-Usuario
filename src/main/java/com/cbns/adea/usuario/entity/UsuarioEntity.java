@@ -72,7 +72,9 @@ public class UsuarioEntity {
 
 	@PrePersist
 	protected void onCreate() {
-	    this.fechaModificacion = new Date();
+		Date now = new Date();
+	    this.fechaAlta = now;
+	    this.fechaModificacion = now;
 	}
 	
 }
