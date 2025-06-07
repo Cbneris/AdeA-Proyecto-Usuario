@@ -32,6 +32,7 @@ public class UsuarioController extends CommonController<UsuarioEntity, UsuarioSe
 		
 		try {		
 			entity.setPassword(shaBase64.hashSha256Base64(entity.getPassword()));
+			entity.setStatus('A');
 		}catch (Exception e) {
 			return ResponseBuilder.error("ENCRP-001: Ocurrio un error al guardar la informacion", HttpStatus.BAD_REQUEST, null);
 		}
