@@ -1,14 +1,14 @@
 package com.cbns.adea.usuario.mapper;
 
-import com.cbns.adea.usuario.dto.UsuarioResponse;
+import com.cbns.adea.usuario.dto.UsuarioDTO;
 import com.cbns.adea.usuario.entity.UsuarioEntity;
 
 public class UsuarioMapper {
 	
-	public static UsuarioResponse toDTO(UsuarioEntity entity) {
+	public static UsuarioDTO toDTO(UsuarioEntity entity) {
         if (entity == null) return null;
 
-        return new UsuarioResponse(
+        return new UsuarioDTO(
                 entity.getLogin(),
                 entity.getNombre(),
                 entity.getCliente(),
@@ -27,7 +27,7 @@ public class UsuarioMapper {
             );
     }
 	
-	 public static UsuarioEntity fromDTO(UsuarioResponse dto) {
+	 public static UsuarioEntity fromDTO(UsuarioDTO dto) {
 	        if (dto == null) return null;
 
 	        UsuarioEntity entity = new UsuarioEntity();

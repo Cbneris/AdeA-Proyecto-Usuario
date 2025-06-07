@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cbns.adea.usuario.dto.UsuarioResponse;
+import com.cbns.adea.usuario.dto.UsuarioDTO;
 import com.cbns.adea.usuario.entity.UsuarioEntity;
 import com.cbns.adea.usuario.mapper.UsuarioMapper;
 import com.cbns.adea.usuario.service.EncriptacionShaBase64;
@@ -38,11 +38,11 @@ public class UsuarioController extends CommonController<UsuarioEntity, UsuarioSe
 		}
 		
 		UsuarioEntity saved = service.save(entity);		
-        return ResponseBuilder.created("Entidad guardada exitosamente", UsuarioMapper.toDTO(saved));
+        return ResponseBuilder.created("Se ha guardado exitosamente el usuario ", UsuarioMapper.toDTO(saved));
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<?> updateUsuario(@RequestBody UsuarioResponse usuarioUpdate) {
+	public ResponseEntity<?> updateUsuario(@RequestBody UsuarioDTO usuarioUpdate) {
 		UsuarioEntity updated = new UsuarioEntity();
 		try {
 			UsuarioEntity usrUpdateEntity = UsuarioMapper.fromDTO(usuarioUpdate);
@@ -56,7 +56,7 @@ public class UsuarioController extends CommonController<UsuarioEntity, UsuarioSe
 	}
 	
 	@PutMapping("/bajausuario")
-	public ResponseEntity<?> putMethodName(@RequestBody UsuarioResponse usuarioUpdate) {
+	public ResponseEntity<?> putMethodName(@RequestBody UsuarioDTO usuarioUpdate) {
 		UsuarioEntity usuarioBaja = new UsuarioEntity();
 		try {
 			UsuarioEntity usrBajaEntity = UsuarioMapper.fromDTO(usuarioUpdate);
