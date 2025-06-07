@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UsuarioResponse {
+public class UsuarioDTO {
 	
 	private String 	login;
     private String 	nombre;
