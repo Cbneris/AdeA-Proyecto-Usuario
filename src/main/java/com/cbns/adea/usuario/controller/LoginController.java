@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cbns.adea.usuario.commons.EntityResponse;
+import com.cbns.adea.usuario.commons.ResponseBuilder;
 import com.cbns.adea.usuario.dto.UsuarioLoginRequest;
 import com.cbns.adea.usuario.entity.UsuarioEntity;
 import com.cbns.adea.usuario.service.EncriptacionShaBase64;
 import com.cbns.adea.usuario.service.LoginService;
-import com.dervmark.commons.response.EntityResponse;
-import com.dervmark.commons.response.ResponseBuilder;
 
 @RestController
 @RequestMapping("/login")
